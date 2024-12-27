@@ -1,0 +1,626 @@
+<!DOCTYPE html> 
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HopeCart</title>
+    <link rel="stylesheet" href="styles.css"> 
+    <style>
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            margin: 0;
+            padding: 0;
+            background: linear-gradient(to bottom, #ddcfff, #f5f1f3);
+            color: #333;
+        }
+
+        header {
+            background-color: #2a027a;
+            color: rgb(254, 255, 255);
+            padding: 1rem 0;
+        }
+
+        header .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 1rem;
+        }
+
+        header h1 {
+            margin: 0;
+            font-size: 40px;
+        }
+        
+        nav {
+            display: flex;
+            align-items: center;
+        } 
+
+        nav ul {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+        }
+
+        nav ul li {
+            margin-left: 20px;
+        }
+
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+            font-size: 14px;
+        }
+
+        nav ul li a:hover {
+            text-decoration: underline;
+        }
+
+        .hero {
+            text-align: center;
+            background: url('images/hero-bg.jpg') no-repeat center center/cover;
+            color: rgb(0, 0, 0);
+            padding: 4rem 1rem;
+        }
+
+        .hero h2 {
+            font-size: 2.5rem;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            margin: 1rem 0;
+        }
+
+        .btn {
+            display: inline-block;
+            background-color: #7902ac;
+            color: white;
+            padding: 0.75rem 1.5rem;
+            text-decoration: none;
+            border-radius: 5px;
+            font-size: 1rem;
+            margin-top: 1rem;
+        }
+
+        .btn:hover {
+            background-color: #ba57ec;
+        }
+
+        .products {
+            background-color: #e0f7fa;
+            padding: 2rem 1rem;
+        }
+
+        .products h2 {
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+
+        .product-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+            object-fit: cover;
+        }
+
+        .product-card {
+            background-color: white;
+            border: 1px solid #ccc;
+            border-radius: 10px;
+            overflow: hidden;
+            text-align: center;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .product-card img {
+            max-width: 100%;
+            height: auto;
+        }
+
+        .product-card h3 {
+            font-size: 1.2rem;
+            margin: 0.5rem 0;
+        }
+
+        .product-card p {
+            font-size: 0.9rem;
+            color: #555;
+            margin: 0 0 1rem 0;
+        }
+
+        .about-us {
+            background-color: #c8d8f7; 
+            border-radius: 10px; 
+            padding: 20px; 
+            width: 80%; 
+            margin: 20px auto; 
+            box-shadow: 0 4px 8px rgba(226, 170, 170, 0.1); 
+        }
+
+        .about-us p {
+            font-size: 1.2rem; 
+            color: #030404; 
+            line-height: 1.6;
+        }
+
+        .login-container {
+            background-color: #fc9dd9; 
+            padding: 20px;
+            border-radius: 8px; 
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); 
+            width: 300px; 
+            text-align: center;
+            max-width: 600px;
+            margin: 0 auto;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .login-container h2 {
+            color: #9dc5f6; 
+            margin-bottom: 15px;
+            font-size: 1.5rem;
+            max-width: 600px;
+            margin: 0 auto;
+            display: flex;
+            flex-direction: column;
+            text-align: center;
+        }
+
+        .input-field {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            border: 1px solid #f1e9e9;
+            border-radius: 5px;
+            box-sizing: border-box;
+            font-size: 1rem;
+        }
+
+        .login-button {
+            width: 100%;
+            padding: 12px;
+            background-color: #003bbc; 
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 1.1rem;
+        }
+
+        .login-button:hover {
+            background-color: #3D5A80; 
+        }
+
+        .login form {
+            max-width: 600px;
+            margin: 0 auto;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .forgot-password {
+            margin-top: 10px;
+            font-size: 0.9rem;
+            color: #005ce6; 
+            text-decoration: none;
+            max-width: 600px;
+            margin: 0 auto;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .forgot-password:hover {
+            color: #3D5A80; 
+            
+        }
+
+        .about, .contact {
+            padding: 2rem 1rem;
+            background-color: #ffffff;
+        }
+
+        .about h2, .contact h2 {
+            text-align: center;
+            margin-bottom: 1rem;
+        }
+
+        .about p {
+            max-width: 800px;
+            margin: 0 auto;
+            text-align: center;
+            font-size: 1.1rem;
+        }
+        
+
+        .contact form {
+            max-width: 600px;
+            margin: 0 auto;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .contact label {
+            margin-bottom: 0.5rem;
+            font-weight: bold;
+        }
+
+        .contact input, .contact textarea {
+            margin-bottom: 1rem;
+            padding: 0.75rem;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 1rem;
+        }
+
+        .contact button {
+            background-color: #00796b;
+            color: white;
+            padding: 0.75rem;
+            border: none;
+            border-radius: 5px;
+            font-size: 1rem;
+        }
+
+        .contact button:hover {
+            background-color: #004d40;
+        }
+
+        footer {
+            text-align: center;
+            background-color: #010364;
+            color: white;
+            padding: 1rem 0;
+        }
+
+        footer p {
+            margin: 0;
+        }
+
+        .carousel-container {
+            position: relative;
+            width: 100%;
+            max-width: 600px; 
+            margin: auto;
+            overflow: hidden; 
+        }
+
+       .carousel-images {
+            display: flex;
+            transition: transform 0.5s ease-in-out; 
+        }
+
+        .carousel-images img {
+            width: 100%;
+            height: auto;
+            border-radius: 8px;
+        }
+
+        .prev, .next {
+            position: absolute;
+            top: 50%;
+            background-color: rgba(0, 0, 0, 0.5); 
+            color: white;
+            font-size: 18px;
+            border: none;
+            padding: 10px;
+            cursor: pointer;
+            border-radius: 50%;
+            transform: translateY(-50%);
+        }
+
+        .prev {
+            left: 10px;
+        }
+
+        .next {
+            right: 10px;
+        }
+
+   
+        .dots {
+            text-align: center;
+            padding: 10px;
+        }
+
+        .dot {
+            height: 15px;
+            width: 15px;
+            margin: 0 5px;
+            background-color: #bbb;
+            border-radius: 50%;
+            display: inline-block;
+            transition: background-color 0.6s ease;
+            cursor: pointer;
+        }
+
+        .active {
+            background-color: #717171;
+        }
+
+        .caption {
+            position: absolute;
+            bottom: 10px;
+            left: 10px;
+            background-color: rgba(0, 0, 0, 0.5);
+            color: white;
+            padding: 5px 10px;
+            border-radius: 5px;
+            font-size: 1.2em;
+        }
+
+        input[type="text"] {
+            width: 300px;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px 0 0 5px;
+            outline: none;
+            font-size: 14px;
+        }
+
+        button {
+            padding: 10px 20px;
+            background-color: #007BFF;
+            color: white;
+            border: none;
+            border-radius: 0 5px 5px 0;
+            cursor: pointer;
+            font-size: 14px; 
+        }
+        button:hover {
+            background-color: #0056b3;
+        }
+
+        .voice-search {
+            display: flex;
+            align-items: center;
+        }
+        .voice-search input {
+            margin-right: 10px;
+        }
+
+        input[type="text"] {
+            padding: 8px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            margin-right: 5px;
+            font-size: 14px; /* Smaller font size */
+        }
+        button {
+            padding: 8px 10px;
+            border: none;
+            border-radius: 4px;
+            background-color: #007bff;
+            color: white;
+            cursor: pointer;
+            font-size: 14px; /* Smaller font size */
+        }
+        button:hover {
+            background-color: #0056b3;
+        }
+        .voice-search {
+            display: flex;
+            align-items: center;
+            margin-right: 20px;
+        }
+        .voice-search input {
+            margin-right: 2px;
+            padding: 10px;
+            font-size: 12px; /* Smaller font size */
+        }
+        nav {
+            display: flex;
+            justify-content: flex-end; /* Align nav items to the right */
+            margin-top: 10px; /* Space between header and nav */
+        }
+        nav ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            display: flex;
+        }
+        nav ul li {
+            margin-left: 20px; /* Space between nav items */
+        }
+        nav ul li a {
+            text-decoration: none;
+            color: #f5faff;
+            font-size: 14px; /* Smaller font size */
+        }
+        nav ul li a:hover {
+            text-decoration: underline;
+        }
+
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1>HopeCart</h1>
+            
+            
+            <form action="/search" method="GET">
+                <input type="text" name="query" placeholder="Search..." required>
+                <button type="submit">Search</button>
+            </form>
+
+            <div class="voice-search">
+                <h1 style="font-size: 18px; margin: 0;"></h1>
+                <input type="text" id="searchInput" placeholder="Say something..." />
+                <button id="startButton">Voice Search</button><br><br>
+
+            </div>
+        </div>
+   
+
+    <script src="voiceSearch.js"></script>
+
+    <nav>
+        <ul>
+            <li><a href="#products.html">Products</a></li>
+            <li><a href="#about">About Us</a></li>
+            <li><a href="#login">Login</a></li>
+            <li><a href="#contact">Support</a></li>
+        </ul>
+    </nav>
+</div>
+    </header>
+
+    <main>
+        <section class="hero">
+            <div class="container">
+              <h2>Empowering Everyday Living</h2>
+                <p>Inclusive products designed to support, empower, and enhance your journey. Because every step matters, and so do you.<br>
+                   Discover solutions that enhance your everyday life and bring freedom to every step.</p>
+                   <a href="products.html" class="btn">Shop Now</a>
+
+            </div>
+        </section>
+
+
+    
+        
+    <section id="products.html" class="products.html">
+        <section id="products" class="products">
+            <a href="products.html"></a>
+        
+        <div class="container">
+             
+                <div class="container">
+                    <h2>Featured Products</h2>
+                    <div class="product-grid">
+                        <div class="product-card">
+                            <img src="https://easycareglobal.com/cdn/shop/files/01_4bcb7751-469a-48ea-9431-9c38314df093_700x700.jpg?v=1720259083"height="50" width="200" alt="Wheelchair">
+                            <h3>Comfort Wheelchair</h3>
+                            <p>Ergonomically designed for comfort and ease of use.</p>
+                            <a href="wheel chair.html" class="btn">View Details</a>
+                        </div>
+                        <div class="product-card">
+                            <img src=https://encrypted-tbn3.gstatic.com/shopping?q=tbn:ANd9GcTkse2U12w8WOnAACNM0tv1ZDtSy7kMgu5HqHY8bLtvmGYCw3E987Qnh4hxS-BSAAA7kRo7HNQWg5Czur6c0rAoRLwGy9A-RTF9o60XyR0lSlUTmtDECrn0&usqp=CAE height="50" width="200" alt="Hearing Aid">
+                            <h3>Advanced Hearing Aid</h3>
+                            <p>Enhance sound clarity with cutting-edge technology.</p>
+                            <a href="advanced hearing aid .html" class="btn">View Details</a>
+                        </div>
+                        <div class="product-card">
+                            <img src="https://encrypted-tbn2.gstatic.com/shopping?q=tbn:ANd9GcRN4J-rHLNYxWlR1w9HAwkbqA5cKJK1CVMpm0tjao0JXMQQAXzyRQcfVM2twqnBFLzL8vhTmX99Mu1X9ifAE7xufTEcUaEnDWN68xvn8HWg&usqp=CAE"height="50" width="200" alt="Braille Keyboard">
+                            <h3>Braille Keyboard</h3>
+                            <p>Type with confidence using Braille-enabled keyboard.</p>
+                            <a href="braille keyboard.html" class="btn">View Details</a>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <script>
+                // Function to get product details based on the URL
+                function getProductDetails() {
+                    const urlParams = new URLSearchParams(window.location.search);
+                    const productId = urlParams.get('product');
+        
+                    // Simulated product data (replace this with your database or API)
+                    const products = {
+                        1: {
+                            name: 'Comfort Wheelchair',
+                            description: 'Ergonomically designed for comfort and ease of use.',
+                            price: '$499',
+                            images: ['image1.jpg', 'image2.jpg', 'image3.jpg']
+                        },
+                        2: {
+                            name: 'Advanced Hearing Aid',
+                            description: 'Enhance sound clarity with cutting-edge technology.',
+                            price: '$299',
+                            images: ['image1.jpg', 'image2.jpg', 'image3.jpg']
+                        },
+                        3: {
+                            name: 'Braille Keyboard',
+                            description: 'Type with confidence using Braille-enabled keyboard.',
+                            price: '$199',
+                            images: ['image1.jpg', 'image2.jpg', 'image3.jpg']
+                        }
+                    };
+        
+                    // Get product details from the array
+                    const product = products[productId];
+        
+                    // Populate the product details on the page
+                    document.getElementById('product-name').textContent = product.name;
+                    document.getElementById('product-description').textContent = product.description;
+                    document.getElementById('product-price').textContent = product.price;
+        
+                    // Set up carousel images
+                    const carousel = document.getElementById('product-carousel');
+                    product.images.forEach((image) => {
+                        const imgElement = document.createElement('img');
+                        imgElement.src = image;
+                        carousel.appendChild(imgElement);
+                    });
+                }
+        
+                // Load the product details when the page is loaded
+                window.onload = getProductDetails;
+            </script>
+    
+                
+
+         <section id="about" class="about">
+            <div class="container">
+               <div class="about-us">
+                <h2>About Us</h2>
+                <p>
+                At HopeCart, we are committed to empowering individuals with physical challenges by providing high-quality, accessible products that enhance mobility, comfort, and independence. 
+                Our mission is to create a world where everyone, regardless of their physical abilities, can live with dignity, freedom, and ease. 
+                We offer a wide range of carefully selected products designed to support daily living, ensuring that our customers have the tools they need to thrive. 
+                With a focus on innovation, affordability, and customer care, we are here to help you live your life with confidence and independence - because at HopeCart, we believe everyone deserves hope and the freedom to move forward.
+                </p>
+            </div>
+        </section>
+
+        <section id="login" class="login">
+        <div class="container">
+        <div class="login">
+           <center><h2>Login</h2></center> 
+            <form action="/login" method="POST">
+                <input type="text" class="input-field" placeholder="Username" name="username" required>
+                <input type="password" class="input-field" placeholder="Password" name="password" required>
+                <button type="submit" class="login-button">Login</button><br>
+            </form>
+            <a href="#" class="forgot-password">Forgot Password?</a>
+        </div>
+        </div>
+    </section>
+  
+
+        <section id="contact" class="contact">
+            <div class="container">
+                <h2>Contact Us</h2>
+                <form>
+                    <label for="name">Name:</label>
+                    <input type="text" id="name" name="name" required>
+
+                    <label for="email">Email:</label>
+                    <input type="email" id="email" name="email" required>
+
+                    <label for="message">Message:</label>
+                    <textarea id="message" name="message" rows="3" required></textarea>
+
+                    <button type="submit" class="btn">Submit</button>
+                </form>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2024 Inclusive Shop. All rights reserved.</p>
+        </div>
+    </footer>
+</body>
+</html>
+

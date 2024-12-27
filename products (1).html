@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HopeCart - Products</title>
+    <style>
+        /* General Styles */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #d0e2f2; /* Light background color */
+        }
+
+        h1 {
+            margin: 20px 0;
+            text-align: center;
+        }
+
+        /* Products Page Section */
+        .products-page {
+            padding: 20px;
+        }
+
+        .products-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 20px;
+            justify-content: center;
+        }
+
+        /* Product Card Styles */
+        .product {
+            background-color: #ffffff;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            transition: transform 0.2s;
+            text-align: center;
+        }
+
+        .product:hover {
+            transform: translateY(-5px);
+        }
+
+        .carousel {
+            position: relative;
+            overflow: hidden;
+            width: 100%;
+            height: 200px;
+            border-radius: 8px;
+        }
+
+        .slides {
+            display: flex;
+            transition: transform 0.5s ease-in-out;
+        }
+
+        .slides img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            flex-shrink: 0;
+        }
+
+        button {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background-color: rgba(0, 0, 0, 0.5);
+            color: white;
+            border: none;
+            padding: 10px;
+            cursor: pointer;
+            z-index: 10;
+        }
+
+        button.prev {
+            left: 10px;
+        }
+
+        button.next {
+            right: 10px;
+        }
+
+        .product-details {
+            padding: 15px;
+        }
+
+        .product-name {
+            font-size: 18px;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+
+        .product-price {
+            font-size: 16px;
+            color: #007bff;
+            margin-bottom: 10px;
+        }
+
+        .product button {
+            padding: 8px 15px;
+            font-size: 14px;
+            color: white;
+            background-color: #007bff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .product button:hover {
+            background-color: #0056b3;
+        }
+
+        /* Back Button Styles */
+        .back-button {
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            background-color: #5d45fe;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+        .back-button:hover {
+            background-color: #0056b3;
+        }
+
+        .add-to-cart {
+        background-color: #007BFF;
+        color: white;
+        border: none;
+        padding: 8px 12px;
+        font-size: 14px;
+        cursor: pointer;
+        border-radius: 4px;
+    }
+
+    .add-to-cart:hover {
+        background-color: #0056b3;
+    }
+    </style>
+</head>
+<body>
+    <button class="back-button" onclick="goBack()">Go Back</button>
+
+    <!-- Products Page Section -->
+    <div class="products-page">
+        <h1>Our Products</h1>
+        <div class="products-container">
+            <!-- Product 1 -->
+            <div class="product">
+                <div class="carousel">
+                    <div class="slides">
+                        <img src="https://5.imimg.com/data5/SELLER/Default/2023/7/323585474/IA/EW/CD/39151225/dot-watches-smart-watch-by-dot--1000x1000.png" height="50" width="50" alt="Braille Watches">
+                        <img src="https://5.imimg.com/data5/SELLER/Default/2023/7/323479425/IM/EP/AE/39151225/dot-watches-smart-watch-by-dot--1000x1000.png" height="50" width="50" alt="Braille Watches">
+                        <img src="https://5.imimg.com/data5/SELLER/Default/2023/7/322658994/RE/SP/IK/39151225/dot-watches-smart-watch-by-dot--1000x1000.jpg" height="50" width="50" alt="Braille Watches">
+                    </div>
+                    <button class="prev">&lt;</button>
+                    <button class="next">&gt;</button>
+                </div>
+                <div class="product-details">
+                    <div class="product-name">Braille Watch</div>
+                    <div class="product-price">Rs.4,479</div>
+                   
+                </div>
+                <button class="add-to-cart">Add to Cart</button>
+            </div>
+
+            <!-- Product 2 -->
+            <div class="product">
+                <img src="https://www.jiomart.com/images/product/original/rv96j2q8wn/iwalk-changing-lives-101-black-elbow-crutch-stick-for-handicapped-injured-people-universal-adjustable-product-images-orv96j2q8wn-p591296055-1-202205132131.jpg?im=Resize=(420,420)" height="200" width="100%" alt="Elbow Crutch">
+                <div class="product-details">
+                    <div class="product-name">Elbow Crutch</div>
+                    <div class="product-price">Rs.479</div>
+                    <button>Add to Cart</button>
+                </div>
+            </div>
+
+            <!-- Product 3 -->
+            <div class="product">
+                <img src="https://www.hoveround.com/media/catalog/product/cache/f40c6f1836ed1354933e11e32794db57/e/a/eagle-off-road-mobility-scooter-left-front-1000.jpg" height="200" width="100%" alt="Mobility Scooters">
+                <div class="product-details">
+                    <div class="product-name">Mobility Scooters</div>
+                    <div class="product-price">Rs.1,02,999</div>
+                    <button>Add to Cart</button>
+                </div>
+            </div>
+
+            <!-- Product 4 -->
+            <div class="product">
+                <img src="https://5.imimg.com/data5/SELLER/Default/2022/1/TW/VS/XD/54456534/new-product-500x500.jpeg" height="200" width="100%" alt="Handicapped Crutches">
+                <div class="product-details">
+                    <div class="product-name">Handicapped Crutches</div>
+                    <div class="product-price">Rs.2999</div>
+                    <button>Add to Cart</button>
+                </div>
+            </div>
+
+            <!-- Product 5 -->
+            <div class="product">
+                <img src="https://now.aapmr.org/wp-content/uploads/4-Prosthetic-683x1024.jpg" height="200" width="100%" alt="Lower Limb Prosthetics">
+                <div class="product-details">
+                    <div class="product-name">Lower Limb Prosthetics</div>
+                    <div class="product-price">Rs.40,599</div>
+                    <button>Add to Cart</button>
+                </div>
+            </div>
+
+            <!-- Product 6 -->
+            <div class="product">
+                <img src="https://shop.sanraimed.com/media/catalog/product/cache/b2d42f782e5ccd628241b0d28bd27c98/w/h/wheeled_commode_trs_200.jpg" height="200" width="100%" alt="Wheeled Commode Chair">
+                <div class="product-details">
+                    <div class="product-name">Wheeled Commode Chair</div>
+                    <div class="product-price">Rs.15,599</div>
+                    <button>Add to Cart</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        document.querySelectorAll('.carousel').forEach((carousel) => {
+            const slides = carousel.querySelector('.slides');
+            const images = slides.querySelectorAll('img');
+            const totalImages = images.length;
+            let currentIndex = 0;
+
+            const prevButton = carousel.querySelector('.prev');
+            const nextButton = carousel.querySelector('.next');
+
+            prevButton.addEventListener('click', () => {
+                currentIndex = (currentIndex === 0) ? totalImages - 1 : currentIndex - 1;
+                updateCarousel();
+            });
+
+            nextButton.addEventListener('click', () => {
+                currentIndex = (currentIndex === totalImages - 1) ? 0 : currentIndex + 1;
+                updateCarousel();
+            });
+
+            function updateCarousel() {
+                const offset = -currentIndex * 100;
+                slides.style.transform = `translateX(${offset}%)`;
+            }
+        });
+
+        // Function to go back
+        function goBack() {
+            window.history.back();
+        }
+    </script>
+</body>
+</html>
